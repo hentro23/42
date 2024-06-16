@@ -6,11 +6,11 @@
 /*   By: gkviria <gkviria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:46:02 by gkviria           #+#    #+#             */
-/*   Updated: 2024/05/12 13:25:51 by gkviria          ###   ########.fr       */
+/*   Updated: 2024/05/18 15:27:13 by gkviria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -19,4 +19,10 @@ void	*ft_calloc(size_t count, size_t size)
 
 	total_size = count * size;
 	if (count != 0 && total_size / count != size)
+	{
+		return (NULL);
+	}
+	ptr = malloc(size);
+	ft_bzero(ptr, count);
+	return (ptr);
 }
